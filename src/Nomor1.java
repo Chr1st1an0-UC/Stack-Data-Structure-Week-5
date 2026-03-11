@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.Stack;
 
 public class Nomor1 {
@@ -7,12 +8,12 @@ public class Nomor1 {
 
         for (char c : s.toCharArray()) {
 
-            // jika opening bracket
+            // opening bracket
             if (c == '(' || c == '{' || c == '[') {
                 stack.push(c);
             }
 
-            // jika closing bracket
+            // closing bracket
             else if (c == ')' || c == '}' || c == ']') {
 
                 if (stack.isEmpty()) {
@@ -34,12 +35,13 @@ public class Nomor1 {
 
     public static void main(String[] args) {
 
-        String s1 = "{[()]}";
-        String s2 = "{[([)]]}";
-        String s3 = "";
+        Scanner input = new Scanner(System.in);
 
-        System.out.println(s1 + " -> " + is_balanced(s1));
-        System.out.println(s2 + " -> " + is_balanced(s2));
-        System.out.println("Empty -> " + is_balanced(s3));
+        System.out.print("Masukkan string bracket: ");
+        String s = input.nextLine();
+
+        boolean result = is_balanced(s);
+
+        System.out.println("Balanced? " + result);
     }
 }
